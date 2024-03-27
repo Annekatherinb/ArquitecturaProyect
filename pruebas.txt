@@ -1,0 +1,16 @@
+Lui $S3, 0x1004
+Ori $S3, 0x00A0
+Lw $a0, 0x0000($S3)
+Next:
+Sw $a0, 0x01F4($S3)
+Addi $a0, $a0, -1
+Beq $a0, $0, Next
+add $s1, $t1, $a0
+jr $ra
+sll $t1, $s1, 2
+Mflo $v0
+mult $v0, $a1
+jal Potencia
+Potencia:
+Lui $S3, 0x1004
+Ori $S3, 0x00A0
