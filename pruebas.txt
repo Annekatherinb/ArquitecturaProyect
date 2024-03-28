@@ -1,7 +1,6 @@
 Lui $S3, 0x1004
 Ori $S3, 0x00A0
 Lw $a0, 0x0000($S3)
-Next:
 Sw $a0, 0x01F4($S3)
 Addi $a0, $a0, -1
 Beq $a0, $0, Next
@@ -13,4 +12,5 @@ mult $v0, $a1
 jal Potencia
 Potencia:
 Lui $S3, 0x1004
+Next:
 Ori $S3, 0x00A0

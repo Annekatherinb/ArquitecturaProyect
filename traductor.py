@@ -190,16 +190,19 @@ def  tipoI(instruccionEnPartes, informacionTipoInstruccion):
         else:
             pcSalto = etiquetas[instruccionEnPartes[3]]
             pcSalto = int(pcSalto, 16)
+
+
             #calcula a donde va saltar, saltos negativos? complemento a2?
-            y = (pcSalto - pc - 4 )// 4
+            
+            y = (pcSalto - pc)// 4 #correccion etiquetas
 
             if y < 0:
                 positivo = -1 * y
                 inmediato = complementoA_2(y)
+                
             else:
-                inmediato = convertirHexBinario(str(y))
-                inmediato = inmediato[10:26]
-
+                inmediato = complementoA_2(y)
+                
         instruccionTraducida.append(str(bin(rs)[2:].zfill(5)))
         instruccionTraducida.append(str(bin(rt)[2:].zfill(5))) #concatenacion de los binarios 
         instruccionTraducida.append(inmediato)
@@ -243,9 +246,12 @@ def tipoJ(instruccionEnPartes, informacionTipoInstruccion):
     instruccionTraducida.append(informacionTipoInstruccion[1])
     if instruccionEnPartes[1] [0:2] == "0x":
         inmediato = convertirHexBinario(instruccionEnPartes[1])
+
     else:
+        
         inmediato = etiquetas[instruccionEnPartes[1]]
         inmediato = convertirHexBinario(inmediato)
+        
         
     inmediato = "00" + inmediato
     inmediato = inmediato[:24]
