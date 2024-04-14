@@ -43,8 +43,26 @@ entity UnitControl is
 end UnitControl;
 
 architecture Behavioral of UnitControl is
-
+    signal currentState, nextState: std_logic_vector (3 downto 0)
+    
 begin
-
+    nextStateFunction process (opcode, currentState)
+    begin
+        if (cirremtState = "0000";
+            nextState = "0001";
+        end if;
+    end process;
+    
+    stateRegister : Process (clock)
+    
+    begin
+        if (clock' event and clock = '1') then
+            if (reset = '1') then
+                currentState <= "0000";
+            else 
+                currentState <= nextState;
+            end if;
+        end if;
+end process;
 
 end Behavioral;
