@@ -1,0 +1,13 @@
+0.7
+2020.2
+Oct 13 2023
+20:47:58
+W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/imports/new/registro4b.vhd,1713025941,vhdl,,,,registro4b,,,,,,,,
+W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/Alu.vhd,1713026250,vhdl,,,,alu,,,,,,,,
+W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/AluControl.vhd,1713026313,vhdl,,,,alu_control,,,,,,,,
+W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/RegisterFile.vhd,1713026563,vhdl,,,,resgisterfile,,,,,,,,
+W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/mux2to1_32b.vhd,1713025941,vhdl,,,,mux2to1_32b,,,,,,,,
+W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/mux2to1_5b.vhd,1713025941,vhdl,,,,mux2to1_5b,,,,,,,,
+W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/mux4to1_32bits.vhd,1713025941,vhdl,,,,mux4to1_32bits,,,,,,,,
+W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/stateMachine.vhd,1713631493,vhdl,,,,statemachine,,,,,,,,
+W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/unitControl.vhd,1713631316,vhdl,,,,unitcontrol,,,,,,,,
