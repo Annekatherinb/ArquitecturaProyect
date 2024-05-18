@@ -6,44 +6,19 @@ use IEEE.std_logic_unsigned.all;
 entity MIPScomputer is
 Port (     reset : in STD_LOGIC;
            clock : in STD_LOGIC;
-           irWrite : out STD_LOGIC;
-           memToReg : out STD_LOGIC;
-           memWrite : out STD_LOGIC;
-           memRead : out STD_LOGIC;
-           IorD : out STD_LOGIC;
-           pcWrite : out STD_LOGIC;
-           branch : out STD_LOGIC;
-           pcSrc : out STD_LOGIC_VECTOR (1 downto 0);
-           aluOP : out STD_LOGIC_VECTOR (1 downto 0);
-           aluSrcB : out STD_LOGIC_VECTOR (1 downto 0);
-           aluSrcA : out STD_LOGIC;
-           regWrite : out STD_LOGIC;
-           regDst : out STD_LOGIC);
+           exDataOut: out std_logic_vector(15 downto 0));
 end MIPScomputer;
 
 architecture Behavioral of MIPScomputer is
 
 component procesador
-port (
-      reset : in STD_LOGIC;
+port (reset : in STD_LOGIC;
       clock : in STD_LOGIC;
       address: out std_logic_vector(31 downto 0);
       datain: in std_logic_vector(31 downto 0);
+      dataOut: out std_logic_vector(31 downto 0);
       read: out std_logic;
-      irWrite : out STD_LOGIC;
-      memToReg : out STD_LOGIC;
-      memWrite : out STD_LOGIC;
-      memRead : out STD_LOGIC;
-      IorD : out STD_LOGIC;
-      pcWrite : out STD_LOGIC;
-      branch : out STD_LOGIC;
-      pcSrc : out STD_LOGIC_VECTOR (1 downto 0);
-      aluOP : out STD_LOGIC_VECTOR (1 downto 0);
-      aluSrcB : out STD_LOGIC_VECTOR (1 downto 0);
-      aluSrcA : out STD_LOGIC;
-      regWrite : out STD_LOGIC;
-      regDst : out STD_LOGIC
-);
+      write : out STD_LOGIC);
 end component;
 
 component memory
@@ -57,43 +32,53 @@ port (
 );
 end component;
 
-signal iclock, read_i, write_i : STD_LOGIC;
-signal registerIn, registerOut, data_i, address_i : STD_LOGIC_VECTOR(31 downto 0);
+component registro4b
+port(      dataIn : in STD_LOGIC_VECTOR (31 downto 0);
+           dataOut : out STD_LOGIC_VECTOR (31 downto 0);
+           clock : in STD_LOGIC;
+           enable : in STD_LOGIC;
+           reset : in STD_LOGIC);
+
+end component;
+
+signal iclock, read_i, write_i, eDevice, eMemory: STD_LOGIC;
+signal registerIn, registerOut, data_i, address_i, dataOut_i, exDataOut_i : STD_LOGIC_VECTOR(31 downto 0);
     
 begin
-U1: procesador
 
+U1: procesador
 port map(
     reset => reset,
     clock => iclock,
     address => address_i,
     dataIn => data_i,
+    dataOut => dataOut_i,
     read => read_i,
-    irWrite => irWrite,
-    memToreg => memToreg,
-    memWrite => memWrite,
-    memRead => memRead,
-    IorD => IorD,
-    pcwrite => pcWrite,
-    branch => branch,
-    pcSrc => pcSrc,
-    aluOP => aluOP,
-    aluSrcB => aluSrcB,
-    aluSrcA => alusrcA,
-    regWrite => regWrite,
-    regDst => regDst
+    write => write_i
 );
 
 U2: memory
 port map(
     clock => clock,
     address => address_i(9 downto 0),
-    dataIn => X"00000000",
+    dataIn => dataOut_i,
     dataOut => data_i,
-    write =>write_i,
+    write =>eMemory,
     read => read_i
 
 );
+regOut: registro4b
+port map(
+    reset => reset,
+    clock => clock,
+    dataIn => dataOut_i,
+    dataOut => exDataOut_i, 
+    enable => eDevice
+);
+
+exDataOut <= exDataOut_i(15 downto 0);
+eDevice <= write_i and address_i(14);
+eMemory <= write_i and not (address_i(14));
 
 registro32b: process (clock, reset)
     begin

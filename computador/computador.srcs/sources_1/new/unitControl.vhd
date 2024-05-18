@@ -13,7 +13,7 @@ entity unitControl is
            pcWrite : out STD_LOGIC;
            branch : out STD_LOGIC;
            pcSrc : out STD_LOGIC_VECTOR (1 downto 0);
-           aluOP : out STD_LOGIC_VECTOR (1 downto 0);
+           aluOP : out STD_LOGIC_VECTOR (2 downto 0);
            aluSrcB : out STD_LOGIC_VECTOR (1 downto 0);
            aluSrcA : out STD_LOGIC;
            regWrite : out STD_LOGIC;
@@ -98,7 +98,7 @@ begin
                    pcWrite <= '1';
                    branch <= '0';
                    pcSrc <= "00";
-                   aluOP <= "00";
+                   aluOP <= "000";
                    aluSrcB <= "01";
                    aluSrcA <= '0';
                    regWrite <= '0';
@@ -112,7 +112,7 @@ begin
                    pcWrite <= '0';
                    branch <= '0';
                    pcSrc <= "00";
-                   aluOP <= "00";
+                   aluOP <= "000";
                    aluSrcB <= "11";
                    aluSrcA <= '0';
                    regWrite <= '0';
@@ -126,7 +126,7 @@ begin
                    pcWrite <= '0';
                    branch <= '0';
                    pcSrc <= "00";
-                   aluOP <= "00";
+                   aluOP <= "000";
                    aluSrcB <= "10";
                    aluSrcA <= '1';
                    regWrite <= '0';
@@ -140,7 +140,7 @@ begin
                    pcWrite <= '0';
                    branch <= '0';
                    pcSrc <= "00";
-                   aluOP <= "00";
+                   aluOP <= "000";
                    aluSrcB <= "00";
                    aluSrcA <= '0';
                    regWrite <= '0';
@@ -154,7 +154,7 @@ begin
                    pcWrite <= '0';
                    branch <= '0';
                    pcSrc <= "00";
-                   aluOP <= "00";
+                   aluOP <= "000";
                    aluSrcB <= "00";
                    aluSrcA <= '0';
                    regWrite <= '1';
@@ -168,7 +168,7 @@ begin
                    pcWrite <= '0';
                    branch <= '0';
                    pcSrc <= "00";
-                   aluOP <= "00";
+                   aluOP <= "000";
                    aluSrcB <= "00";
                    aluSrcA <= '0';
                    regWrite <= '0';
@@ -182,7 +182,7 @@ begin
                    pcWrite <= '0';
                    branch <= '0';
                    pcSrc <= "00";
-                   aluOP <= "10";
+                   aluOP <= "010";
                    aluSrcB <= "00";
                    aluSrcA <= '1';
                    regWrite <= '0';
@@ -196,7 +196,7 @@ begin
                    pcWrite <= '0';
                    branch <= '0';
                    pcSrc <= "00";
-                   aluOP <= "00";
+                   aluOP <= "000";
                    aluSrcB <= "00";
                    aluSrcA <= '0';
                    regWrite <= '1';
@@ -210,7 +210,7 @@ begin
                    pcWrite <= '0';
                    branch <= '1';
                    pcSrc <= "01";
-                   aluOP <= "01";
+                   aluOP <= "001";
                    aluSrcB <= "00";
                    aluSrcA <= '1';
                    regWrite <= '0';
@@ -224,7 +224,7 @@ begin
                    pcWrite <= '1';
                    branch <= '0';
                    pcSrc <= "10";
-                   aluOP <= "00";
+                   aluOP <= "000";
                    aluSrcB <= "00";
                    aluSrcA <= '0';
                    regWrite <= '0';
@@ -238,7 +238,7 @@ begin
                    pcWrite <= '0';
                    branch <= '0';
                    pcSrc <= "00";
-                   aluOP <= "00";
+                   aluOP <= "000";
                    aluSrcB <= "00";
                    aluSrcA <= '0';
                    regWrite <= '0';

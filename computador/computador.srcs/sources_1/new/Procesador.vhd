@@ -36,23 +36,9 @@ Port (reset : in STD_LOGIC;
       clock : in STD_LOGIC;
       address: out std_logic_vector(31 downto 0);
       datain: in std_logic_vector(31 downto 0);
+      dataOut: out std_logic_vector(31 downto 0);
       read: out std_logic;
-      irWrite : out STD_LOGIC;
-      memToReg : out STD_LOGIC;
-      memWrite : out STD_LOGIC;
-      memRead : out STD_LOGIC;
-      IorD : out STD_LOGIC;
-      pcWrite : out STD_LOGIC;
-      branch : out STD_LOGIC;
-      pcSrc : out STD_LOGIC_VECTOR (1 downto 0);
-      aluOP : out STD_LOGIC_VECTOR (1 downto 0);
-      aluSrcB : out STD_LOGIC_VECTOR (1 downto 0);
-      aluSrcA : out STD_LOGIC;
-      regWrite : out STD_LOGIC;
-      regDst : out STD_LOGIC
-      
-
- );
+      write : out STD_LOGIC);
 end Procesador;
 
 architecture Behavioral of Procesador is
@@ -100,7 +86,7 @@ component unitControl
            pcWrite : out STD_LOGIC;
            branch : out STD_LOGIC;
            pcSrc : out STD_LOGIC_VECTOR (1 downto 0);
-           aluOP : out STD_LOGIC_VECTOR (1 downto 0);
+           aluOP : out STD_LOGIC_VECTOR (2 downto 0);
            aluSrcB : out STD_LOGIC_VECTOR (1 downto 0);
            aluSrcA : out STD_LOGIC;
            regWrite : out STD_LOGIC;
@@ -152,22 +138,12 @@ end component;
 
 signal pc2mux, alu2PC, irData, rfOut1, rfOut2, toAlu1, toAlu2, se2mux,mux2alu2, mux2alu1, aluResult, aluRegOut, tempMux, mux2PC,mdrOut, mux2Rf : std_logic_vector(31 downto 0);
 signal iorD_i, pcWrite_i, zFlag, irWrite_i, regDst_i, regwrite_i, aluSrcA_i, mem2reg_i, pcenable, branch_i : std_logic;
-signal aluSrcB_i,aluOP_i,pcSrc_i : std_logic_vector(1 downto 0);
+signal aluSrcB_i,pcSrc_i : std_logic_vector(1 downto 0);
+signal aluOP_i: std_logic_vector(2 downto 0);
 signal writeRFaddress: std_logic_vector (4 downto 0);
-signal operation : std_logic_vector(2 downto 0);
+signal operation : std_logic_vector(3 downto 0);
 
 begin
-    IorD <= iorD_i;
-    pcWrite <= pcWrite_i;
-    irWrite <= irWrite_i;
-    regWrite <= regWrite_i;
-    regDst <= regDst_i;
-    aluSrcB <= aluSrcB_i;
-    aluSrcA_i <= aluSrcA_i;
-    aluOP <= aluOP_i;
-    pcSrc <= pcSrc_i;
-    memToreg <= mem2reg_i;
-    branch <= branch_i;
     
     PC: registro4b
     port map(
@@ -201,17 +177,18 @@ begin
     clock => clock,
     opcode => irData(31 downto 26),
     irWrite => irWrite_i,
-    memToreg => memToreg,
-    memWrite => memWrite,
+    memToreg => mem2reg_i,
+    memWrite => write,
     memRead => read,
     IorD => iorD_i,
     pcwrite => pcwrite_i,
     branch => branch_i,
-    pcsrc => pcSrc,
-    aluOP => aluOP,
-    aluSrcB => aluSrcB,
-    regWrite => regWrite,
-    regDst => regDst );
+    pcsrc => pcSrc_i,
+    aluOP => aluOP_i,
+    aluSrcB => aluSrcB_i,
+    aluSrcA => aluSrcA_i,
+    regWrite => regWrite_i,
+    regDst => regDst_i);
     
     mALU: Alu
     port map(
@@ -258,6 +235,8 @@ begin
         dataIn => rfOut2,
         dataOut => toaLU2
     );
+    
+    dataOut <= toalu2;
     
     singEx: signExtend
     port map(
