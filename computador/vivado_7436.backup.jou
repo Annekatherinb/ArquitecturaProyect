@@ -1,0 +1,105 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Sat Apr 20 11:38:27 2024
+# Process ID: 7436
+# Current directory: W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13384 W:\Universidad\Semestre5\Arquitectura\ArquitecturaProyect\computador\computador.xpr
+# Log file: W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/vivado.log
+# Journal file: W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador\vivado.jou
+# Running On: Steban, OS: Windows, CPU Frequency: 3294 MHz, CPU Physical cores: 12, Host memory: 33654 MB
+#-----------------------------------------------------------
+start_gui
+open_project W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.xpr
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top unitControl [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode DisplayOnly [current_project]
+close [ open W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/stateMachine.vhd w ]
+add_files W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/stateMachine.vhd
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+close_design
+open_hw_manager
+close_hw_manager
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top unitControl [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode DisplayOnly [current_project]
+launch_simulation
+source unitControl.tcl
+restart
+add_force {/unitControl/reset} -radix hex {1 0ns}
+add_force {/unitControl/clock} -radix hex {0 0ns} {1 50000ps} -repeat_every 100000ps
+add_force {/unitControl/opcode} -radix hex {00 0ns}
+run 100 ns
+add_force {/unitControl/reset} -radix hex {0 0ns}
+run 100 ns
+run 100 ns
+run 100 ns
+add_force {/unitControl/opcode} -radix hex {23 0ns}
+restart
+add_force {/unitControl/reset} -radix hex {1 0ns}
+add_force {/unitControl/clock} -radix hex {0 0ns} {1 50000ps} -repeat_every 100000ps
+add_force {/unitControl/opcode} -radix hex {23 0ns}
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+add_force {/unitControl/reset} -radix hex {0 0ns}
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+close [ open W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/testControlU.vhd w ]
+add_files W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/testControlU.vhd
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top testControlU [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode DisplayOnly [current_project]
+add_files -fileset constrs_1 -norecurse W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/constrs_1/imports/Downloads/testUnit.xdc
+set_property is_enabled false [get_files  W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/constrs_1/imports/Downloads/basys3Master2.xdc]
+close_sim
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw_manager
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.runs/impl_1/testControlU.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.runs/impl_1/testControlU.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw_manager

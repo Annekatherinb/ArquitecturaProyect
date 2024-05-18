@@ -14,6 +14,7 @@ entity ResgisterFile is
            dataOut2 : out STD_LOGIC_VECTOR (31 downto 0);
            enableWrite : in STD_LOGIC;
            clock : in STD_LOGIC);
+           
 end ResgisterFile;
 
 architecture Behavioral of ResgisterFile is
