@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Sat Apr 20 13:20:31 2024
+# Process ID: 19004
+# Current directory: W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.runs/synth_1
+# Command line: vivado.exe -log testControlU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source testControlU.tcl
+# Log file: W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.runs/synth_1/testControlU.vds
+# Journal file: W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.runs/synth_1\vivado.jou
+# Running On: Steban, OS: Windows, CPU Frequency: 3294 MHz, CPU Physical cores: 12, Host memory: 33654 MB
+#-----------------------------------------------------------
+source testControlU.tcl -notrace

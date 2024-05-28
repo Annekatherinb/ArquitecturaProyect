@@ -1,0 +1,18 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/mux4to1_32bits.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mux4to1_32bits'
+INFO: [VRFC 10-163] Analyzing VHDL file "W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/mux2to1_32b.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mux2to1_32b'
+INFO: [VRFC 10-163] Analyzing VHDL file "W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/mux2to1_5b.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mux2to1_5b'
+INFO: [VRFC 10-163] Analyzing VHDL file "W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/imports/new/registro4b.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'registro4b'
+INFO: [VRFC 10-163] Analyzing VHDL file "W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/unitControl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'unitControl'
+INFO: [VRFC 10-163] Analyzing VHDL file "W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/Alu.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Alu'
+INFO: [VRFC 10-163] Analyzing VHDL file "W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/AluControl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Alu_control'
+INFO: [VRFC 10-163] Analyzing VHDL file "W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/RegisterFile.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ResgisterFile'
+INFO: [VRFC 10-163] Analyzing VHDL file "W:/Universidad/Semestre5/Arquitectura/ArquitecturaProyect/computador/computador.srcs/sources_1/new/stateMachine.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'stateMachine'

@@ -1,0 +1,14 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../computador.srcs/sources_1/new/mux4to1_32bits.vhd" \
+"../../../../computador.srcs/sources_1/new/mux2to1_32b.vhd" \
+"../../../../computador.srcs/sources_1/new/mux2to1_5b.vhd" \
+"../../../../computador.srcs/sources_1/imports/new/registro4b.vhd" \
+"../../../../computador.srcs/sources_1/new/unitControl.vhd" \
+"../../../../computador.srcs/sources_1/new/Alu.vhd" \
+"../../../../computador.srcs/sources_1/new/AluControl.vhd" \
+"../../../../computador.srcs/sources_1/new/RegisterFile.vhd" \
+"../../../../computador.srcs/sources_1/new/stateMachine.vhd" \
+
+# Do not sort compile order
+nosort
